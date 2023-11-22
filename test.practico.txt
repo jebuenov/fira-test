@@ -5,14 +5,24 @@ Preguntas:
  1.2 - ¿Qué metodologís utilizáis para gestioanr el equipo?¿Ágiles?
  1.3 - ¿Eliges la tarjeta o te la asignan?
 
-2. ¿Qué versiones de Java conoces?
+2. ¿Qué versiones de Java conoces? 7, 8 y 10
 
 3. Diferencia entre Lazy vs Eagger
   Bucle
+  
+  
+Lazy loading carga los datos asociados a una entidad solo cuando son necesarios, mejorando el rendimiento inicial pero potencialmente causando excepciones. Eager loading carga inmediatamente todos los datos asociados, evitando excepciones pero generando consultas innecesarias, y la elección depende de la naturaleza de la relación y los requisitos de rendimiento.
 
-4. ¿Qué tipos de Projections conoces? Spring Data Rest
+4. ¿Qué tipos de Projections conoces? Spring Data Rest Proyecciones de Interfaz y Proyecciones de DTO la de DTO es la que mas use
 5. ¿Qué significa que una clase o método tenga @Transactional?
+
+Imagina que estás realizando varias acciones en tu aplicación, como guardar datos en una base de datos. Ahora, si algo sale mal durante esas acciones, como si se produce un error, ¿preferirías que todo volviera a estar como estaba antes o quedarte en un estado inconsistente?
+
+Bueno, la anotación @Transactional en Java, especialmente cuando usas Spring, es como decirle a tu aplicación que agrupe todas esas acciones en una "transacción". Esto significa que todas esas cosas que estás haciendo suceden como una unidad única. Si todo va bien, genial. Pero si algo sale mal en el camino, la transacción se cancela y todo vuelve al estado que tenía antes de comenzar, para que tu aplicación no quede en un estado extraño e inconsistente. Es una especie de seguro para tus operaciones, asegurándose de que todo esté en orden incluso si algo va mal.
+
    5.1 -Si quieres que las consultas sean de de solo lectura, ¿Cómo lo configurarías?
+   Se puede utilizar la propiedad readOnly de la anotación @Transactional para indicar que la transacción es de solo lectura.
+   Depende del proyecto se puede configurar en la clase java o en el xml asociado.
 
 
 
@@ -43,5 +53,6 @@ Práctica
 
 EB1 - Añade al gitignore los ficheros de *.log
 EB2 - Proyecto que compile
+
 
 

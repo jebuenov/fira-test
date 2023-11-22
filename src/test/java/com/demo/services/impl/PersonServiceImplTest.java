@@ -1,32 +1,49 @@
 package com.demo.services.impl;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.entity.Person;
-import com.demo.services.PersonService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
+@ComponentScan("com.demo.repositories")
 public class PersonServiceImplTest {
 
     @Autowired
-    private PersonService personService;
+    private PersonServiceImpl personService;
 
     @Test
     void getListByNameTest() {
-        // Test implementation
+        // Datos de prueba
         String nameToSearch = "Juan";
+
+        // Llamada al método del servicio
         Collection<Person> result = personService.getListByName(nameToSearch);
-        // Add assertions based on your test criteria
+
+        // Verificación de resultados
+        assertNotNull(result);
+        // Puedes agregar más aserciones según tus necesidades
     }
 
     @Test
     void getIdListUsingLambdaTest() {
-        // Test implementation
+        // Llamada al método del servicio
         Collection<Long> result = personService.getIdListUsingLambda();
-        // Add assertions based on your test criteria
+
+        // Verificación de resultados
+        assertNotNull(result);
+        // Puedes agregar más aserciones según tus necesidades
     }
 }
